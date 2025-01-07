@@ -9,7 +9,6 @@ use std::sync::Arc;
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
     let config = Config::from_url("redis://127.0.0.1:6379");
-    config.get_pool_config().max_size = 100;
     let pool = Arc::new(config.create_pool(Some(Runtime::Tokio1)).unwrap());
 
     HttpServer::new(move || {

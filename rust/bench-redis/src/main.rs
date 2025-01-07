@@ -26,7 +26,7 @@ async fn set_and_get(redis_client: Data<Arc<redis::Client>>) -> HttpResponse {
         Err(err) => return HttpResponse::InternalServerError().body(err.to_string()),
     };
 
-    let _: Result<(), redis::RedisError> = con.set("key", "foobar").await;
+    let _: Result<(), redis::RedisError> = con.set("key", "BAR").await;
 
     let result: Result<String, redis::RedisError> = con.get("key").await;
 

@@ -18,6 +18,7 @@ func main() {
 	})
 
 	e.GET("/", func(c echo.Context) error {
+		rdb.Set(ctx, "foo", "bar", 0)
 		val, err := rdb.Get(ctx, "key").Result()
 		if err != nil {
 			return c.JSON(http.StatusInternalServerError, err.Error())
