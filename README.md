@@ -1,9 +1,3 @@
-server(debian)
-
-```bash
-podman run --rm -d --network=host --name=server debian --cpus 2 --memory 2G
-```
-
 redis
 
 ```bash
@@ -185,4 +179,38 @@ default ✓ [======================================] 10 VUs  10s
 ### rust-redis-deadpool-max-size
 
 ```
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: script.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 10 max VUs, 40s max duration (incl. graceful stop):
+              * default: 10 looping VUs for 10s (gracefulStop: 30s)
+
+
+     data_received..................: 19 MB  1.8 MB/s
+     data_sent......................: 18 MB  1.8 MB/s
+     http_req_blocked...............: avg=2.02µs   min=840ns    med=1.84µs   max=863.82µs p(90)=2.36µs   p(95)=2.7µs   
+     http_req_connecting............: avg=5ns      min=0s       med=0s       max=250.47µs p(90)=0s       p(95)=0s      
+     http_req_duration..............: avg=402.99µs min=139.44µs med=388.32µs max=1.78ms   p(90)=521.06µs p(95)=578.26µs
+       { expected_response:true }...: avg=402.99µs min=139.44µs med=388.32µs max=1.78ms   p(90)=521.06µs p(95)=578.26µs
+     http_req_failed................: 0.00%  0 out of 228363
+     http_req_receiving.............: avg=16.8µs   min=5.47µs   med=14.98µs  max=1.37ms   p(90)=21.09µs  p(95)=24.16µs 
+     http_req_sending...............: avg=5.56µs   min=2.17µs   med=4.95µs   max=1.02ms   p(90)=6.36µs   p(95)=7.15µs  
+     http_req_tls_handshaking.......: avg=0s       min=0s       med=0s       max=0s       p(90)=0s       p(95)=0s      
+     http_req_waiting...............: avg=380.63µs min=125.5µs  med=367.2µs  max=1.66ms   p(90)=495.98µs p(95)=549.82µs
+     http_reqs......................: 228363 22835.585221/s
+     iteration_duration.............: avg=431.39µs min=159.13µs med=415.62µs max=2ms      p(90)=552.04µs p(95)=611.55µs
+     iterations.....................: 228363 22835.585221/s
+     vus............................: 10     min=10          max=10
+     vus_max........................: 10     min=10          max=10
+
+
+running (10.0s), 00/10 VUs, 228363 complete and 0 interrupted iterations
+default ✓ [======================================] 10 VUs  10s
 ```
